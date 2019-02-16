@@ -3,7 +3,7 @@ package com.epam.javast.quadrilateral.parser;
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import com.epam.javast.quadrilateral.parser.api.QuadrilateralParser;
-import com.epam.javast.quadrilateral.regexpackage.FrequentlyUsedRegex;
+import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
 import com.epam.javast.quadrilateral.validator.QuadrilateralValidator;
 
 import java.util.ArrayList;
@@ -36,6 +36,7 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
             pointD = aPointsList.get(3);
             if(!quadrilateralValidator.isValidQuadrilateral(pointA, pointB, pointC, pointD)){
                 quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
+                //quadrilateral.setGeneratedQuadrilateralId();
                 quadrilateralList.add(quadrilateral);
             }
         }

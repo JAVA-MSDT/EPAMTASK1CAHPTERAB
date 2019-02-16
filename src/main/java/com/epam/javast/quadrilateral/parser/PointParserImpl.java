@@ -2,7 +2,7 @@ package com.epam.javast.quadrilateral.parser;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.parser.api.PointParser;
-import com.epam.javast.quadrilateral.regexpackage.FrequentlyUsedRegex;
+import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
 import com.epam.javast.quadrilateral.validator.PointValidator;
 
 import java.util.ArrayList;

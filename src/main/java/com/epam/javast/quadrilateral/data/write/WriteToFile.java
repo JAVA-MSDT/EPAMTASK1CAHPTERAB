@@ -3,7 +3,7 @@ package com.epam.javast.quadrilateral.data.write;
 import com.epam.javast.quadrilateral.data.write.api.DataWriter;
 import com.epam.javast.quadrilateral.data.write.except.DataSaveException;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import com.epam.javast.quadrilateral.regexpackage.FrequentlyUsedRegex;
+import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

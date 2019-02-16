@@ -1,6 +1,6 @@
 package com.epam.javast.quadrilateral.validator;
 
-import com.epam.javast.quadrilateral.regexpackage.FrequentlyUsedRegex;
+import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
 
 public class NumericValueValidator {
 

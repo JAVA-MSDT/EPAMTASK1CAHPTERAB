@@ -1,4 +1,4 @@
-package com.epam.javast.quadrilateral.regexpackage;
+package com.epam.javast.quadrilateral.util.regexpackage;
 
 /**
  * Class holding frequently used regex as constants.

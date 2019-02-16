@@ -8,28 +8,36 @@ import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuadrilateralObserver implements Observer<Quadrilateral> {
+public class QuadrilateralObserver implements Observer {
 
-    private Map<Integer, QuadrilateralParameter> quadrilateralParameter = new HashMap<>();
-    private final Calculator calculator;
+    private Calculator calculator;
+    private static QuadrilateralObserver instance;
 
+    private static Map<Integer, QuadrilateralParameter> quadrilateralParameter;
 
-    public QuadrilateralObserver(Calculator calculator) {
-        this.calculator = calculator;
+    private QuadrilateralObserver() {
+        quadrilateralParameter = new HashMap<>();
     }
 
+    public static QuadrilateralObserver getInstance() {
+        if (instance == null) {
+            instance = new QuadrilateralObserver();
+        }
+        return instance;
+    }
 
     @Override
     public void update(Quadrilateral item) {
 
         double area = calculator.areaCalculator(item);
         double perimeter = calculator.perimeterCalculator(item);
-quadrilateralParameter.put(1, new QuadrilateralParameter(perimeter, area));
-
+        quadrilateralParameter.put(item.getQuadrilateralId(), new QuadrilateralParameter(perimeter, area));
 
     }
 
-    public QuadrilateralParameter getParameter(Integer id){
-        return quadrilateralParameter.get(id);
+    public void add(Quadrilateral item) {
+        double area = calculator.areaCalculator(item);
+        double perimeter = calculator.perimeterCalculator(item);
+        quadrilateralParameter.put(item.getQuadrilateralId(), new QuadrilateralParameter(perimeter, area));
     }
 }

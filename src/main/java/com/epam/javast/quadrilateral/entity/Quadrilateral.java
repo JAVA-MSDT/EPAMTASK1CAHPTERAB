@@ -1,6 +1,6 @@
 package com.epam.javast.quadrilateral.entity;
 
-import java.util.Objects;
+import com.epam.javast.quadrilateral.util.generator.IdGenerator;
 
 public class Quadrilateral {
 
@@ -8,7 +8,11 @@ public class Quadrilateral {
     private  Point pointB;
     private  Point pointC;
     private  Point pointD;
+    private Integer quadrilateralId;
 
+    public  Quadrilateral(){
+
+    }
     public Quadrilateral(Point pointA, Point pointB, Point pointC, Point pointD){
         this.pointA = pointA;
         this.pointB = pointB;
@@ -30,6 +34,25 @@ public class Quadrilateral {
 
     public void setPointD(Point pointD) {
         this.pointD = pointD;
+    }
+
+    public void setQuadrilateralId(Integer quadrilateralId){
+        if(quadrilateralId < 0){
+            this.quadrilateralId = IdGenerator.idGenerator();
+        }
+            this.quadrilateralId = quadrilateralId;
+
+    }
+
+    public void setGeneratedQuadrilateralId(){
+        this.quadrilateralId = IdGenerator.idGenerator();
+        /*if(this.quadrilateralId == 0){
+
+        }*/
+    }
+
+    public Integer getQuadrilateralId() {
+        return quadrilateralId;
     }
 
     public Point getPointA() {
@@ -64,7 +87,8 @@ public class Quadrilateral {
 
          Quadrilateral g = (Quadrilateral) obj;
 
-        return  equalHelper(this.pointA, g.pointA) &&
+        return  equalHelper(this.quadrilateralId, g.quadrilateralId) &&
+                equalHelper(this.pointA, g.pointA) &&
                 equalHelper(this.pointB, g.pointB) &&
                 equalHelper(this.pointC, g.pointC) &&
                 equalHelper(this.pointD, g.pointD);
@@ -79,6 +103,7 @@ public class Quadrilateral {
         final int prime = 31;
         int result = 1;
 
+        result = prime * result + ((quadrilateralId == null) ? 0 : quadrilateralId.hashCode());
         result = prime * result + ((pointA == null) ? 0 : pointA.hashCode());
         result = prime * result + ((pointB == null) ? 0 : pointB.hashCode());
         result = prime * result + ((pointC == null) ? 0 : pointC.hashCode());
@@ -89,7 +114,8 @@ public class Quadrilateral {
     @Override
     public String toString() {
         return "{ " + getClass().getSimpleName() + " coordinates are: " +
-                "pointA= " + pointA +
+                "Id= " + quadrilateralId +
+                ", pointA= " + pointA +
                 ", pointB= " + pointB +
                 ", pointC= " + pointC +
                 ", pointD= " + pointD +

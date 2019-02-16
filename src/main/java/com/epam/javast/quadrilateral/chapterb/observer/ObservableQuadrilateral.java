@@ -8,48 +8,71 @@ import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableQuadrilateral extends Quadrilateral implements Observable<Quadrilateral> {
+public class ObservableQuadrilateral extends Quadrilateral implements Observable{
 
-    private List<Observer<Quadrilateral>> observerList = new ArrayList<>();
-    private final Integer id;
-    public ObservableQuadrilateral(Integer id, Point pointA, Point pointB, Point pointC, Point pointD) {
+    private List<Observer> observerList = new ArrayList<>();
+
+    public ObservableQuadrilateral(){
+
+    }
+    public ObservableQuadrilateral(Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
-        this.id = id;
+
     }
 
-    public Integer getId(){
-        return id;
-    }
+
+
     public void setPointA(Point pointA) {
         super.setPointA(pointA);
+        notifyObserver();
     }
 
     public void setPointB(Point pointB) {
         super.setPointB(pointB);
+        notifyObserver();
     }
 
     public void setPointC(Point pointC) {
         super.setPointC(pointC);
+        notifyObserver();
     }
 
     public void setPointD(Point pointD) {
         super.setPointD(pointD);
+        notifyObserver();
     }
 
     @Override
-    public void addObserver(Observer<Quadrilateral> o) {
+    public void setQuadrilateralId(Integer quadrilateralId) {
+        super.setQuadrilateralId(quadrilateralId);
+        notifyObserver();
+    }
+
+    @Override
+    public void setGeneratedQuadrilateralId() {
+        super.setGeneratedQuadrilateralId();
+        notifyObserver();
+    }
+
+    @Override
+    public Integer getQuadrilateralId() {
+        return super.getQuadrilateralId();
+    }
+    @Override
+    public void addObserver(Observer o) {
         observerList.add(o);
     }
 
     @Override
-    public void removeObserver(Observer<Quadrilateral> o) {
+    public void removeObserver(Observer o) {
         observerList.remove(o);
     }
 
     @Override
-    public void notifyObserver(Observer<Quadrilateral> o) {
+    public void notifyObserver() {
         observerList.forEach(observerList -> observerList.update(this));
     }
+
 
 
 }
