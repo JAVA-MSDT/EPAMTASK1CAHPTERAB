@@ -1,4 +1,4 @@
-package com.epam.javast.quadrilateral.chapterb.observer.api;
+package com.epam.javast.quadrilateral.observer.api;
 
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 

@@ -1,21 +1,21 @@
-package com.epam.javast.quadrilateral.chapterb.observer;
+package com.epam.javast.quadrilateral.observer;
 
-import com.epam.javast.quadrilateral.chapterb.observer.api.Observable;
-import com.epam.javast.quadrilateral.chapterb.observer.api.Observer;
+import com.epam.javast.quadrilateral.observer.api.Observable;
+import com.epam.javast.quadrilateral.observer.api.Observer;
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservableQuadrilateral extends Quadrilateral implements Observable{
+public class QuadrilateralObservable extends Quadrilateral implements Observable {
 
     private List<Observer> observerList = new ArrayList<>();
 
-    public ObservableQuadrilateral(){
+    public QuadrilateralObservable(){
 
     }
-    public ObservableQuadrilateral(Point pointA, Point pointB, Point pointC, Point pointD) {
+    public QuadrilateralObservable(Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
 
     }
@@ -40,6 +40,10 @@ public class ObservableQuadrilateral extends Quadrilateral implements Observable
     public void setPointD(Point pointD) {
         super.setPointD(pointD);
         notifyObserver();
+    }
+
+    public List<Observer> getObserverList() {
+        return observerList;
     }
 
     @Override
@@ -70,7 +74,10 @@ public class ObservableQuadrilateral extends Quadrilateral implements Observable
 
     @Override
     public void notifyObserver() {
-        observerList.forEach(observerList -> observerList.update(this));
+
+        for (Observer o : observerList){
+            o.update(this);
+        }
     }
 
 

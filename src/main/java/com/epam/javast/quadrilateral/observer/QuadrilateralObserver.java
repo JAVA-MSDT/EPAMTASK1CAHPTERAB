@@ -1,7 +1,7 @@
-package com.epam.javast.quadrilateral.chapterb.observer;
+package com.epam.javast.quadrilateral.observer;
 
-import com.epam.javast.quadrilateral.chapterb.figure.QuadrilateralParameter;
-import com.epam.javast.quadrilateral.chapterb.observer.api.Observer;
+import com.epam.javast.quadrilateral.entity.QuadrilateralParameter;
+import com.epam.javast.quadrilateral.observer.api.Observer;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
 
@@ -26,6 +26,22 @@ public class QuadrilateralObserver implements Observer {
         return instance;
     }
 
+    public QuadrilateralParameter getQuadrilateralParameterByItemId(Integer itemId) {
+        return quadrilateralParameter.get(itemId);
+    }
+
+    public static Map<Integer, QuadrilateralParameter> getQuadrilateralParameter() {
+        return quadrilateralParameter;
+    }
+
+    /**
+     * to set the calculator to the desired calculator implementation if it square or rectangle,,,, etc.
+     * @param calculator reference to the desired calculator implementation
+     */
+    public void setCalculator(Calculator calculator){
+        this.calculator = calculator;
+    }
+
     @Override
     public void update(Quadrilateral item) {
 
@@ -33,11 +49,5 @@ public class QuadrilateralObserver implements Observer {
         double perimeter = calculator.perimeterCalculator(item);
         quadrilateralParameter.put(item.getQuadrilateralId(), new QuadrilateralParameter(perimeter, area));
 
-    }
-
-    public void add(Quadrilateral item) {
-        double area = calculator.areaCalculator(item);
-        double perimeter = calculator.perimeterCalculator(item);
-        quadrilateralParameter.put(item.getQuadrilateralId(), new QuadrilateralParameter(perimeter, area));
     }
 }
