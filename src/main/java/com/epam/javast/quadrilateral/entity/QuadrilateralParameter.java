@@ -19,19 +19,28 @@ public class QuadrilateralParameter {
         return area;
     }
 
-    @Override
+     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (this == o) return true;
-        QuadrilateralParameter parameter = (QuadrilateralParameter) o;
+        QuadrilateralParameter p = (QuadrilateralParameter) o;
+        if (Double.doubleToLongBits(this.perimeter) != Double.doubleToLongBits(p.perimeter)) {
+            return false;
+        }
 
-        return Double.compare(parameter.perimeter, perimeter) == 0 &&
-                Double.compare(parameter.area, area) == 0;
+        return Double.doubleToLongBits(this.area) == Double.doubleToLongBits(p.area);
     }
 
-    @Override
+     @Override
     public int hashCode() {
-        return Objects.hash(perimeter, area);
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(area);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(perimeter);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override
