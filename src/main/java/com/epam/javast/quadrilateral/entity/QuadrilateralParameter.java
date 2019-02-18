@@ -18,7 +18,7 @@ public class QuadrilateralParameter {
         return area;
     }
 
-    @Override
+     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (this == o) return true;
@@ -30,7 +30,7 @@ public class QuadrilateralParameter {
         return Double.doubleToLongBits(this.area) == Double.doubleToLongBits(p.area);
     }
 
-    @Override
+     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
