@@ -6,9 +6,16 @@ import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Experimental class,  not for use or check
+ */
 public class QuadrilateralSort {
 
     public static void mergeSort(List<Quadrilateral> quadrilateralList, QuadrilateralComparator compare){
+
+        if (quadrilateralList == null || compare == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateralList or QuadrilateralComparator to be null");
+        }
         List<Quadrilateral> left = new ArrayList<>();
         List<Quadrilateral> right = new ArrayList<>();
         int center;
@@ -65,6 +72,9 @@ public class QuadrilateralSort {
 
 
     public static void bubbleSort(List<Quadrilateral> quadrilateralList, QuadrilateralComparator compare){
+        if (quadrilateralList == null || compare == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateralList or QuadrilateralComparator to be null");
+        }
         for(int i = 0; i < quadrilateralList.size(); i++){
             for (int x = i; x < quadrilateralList.size(); x++){
                 if(compare.compare(quadrilateralList.get(i), quadrilateralList.get(x)) > 0){

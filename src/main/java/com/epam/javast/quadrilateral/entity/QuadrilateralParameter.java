@@ -1,6 +1,5 @@
 package com.epam.javast.quadrilateral.entity;
 
-import java.util.Objects;
 
 public class QuadrilateralParameter {
     private final double perimeter;
@@ -23,20 +22,29 @@ public class QuadrilateralParameter {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         if (this == o) return true;
-        QuadrilateralParameter parameter = (QuadrilateralParameter) o;
+        QuadrilateralParameter p = (QuadrilateralParameter) o;
+        if (Double.doubleToLongBits(this.perimeter) != Double.doubleToLongBits(p.perimeter)) {
+            return false;
+        }
 
-        return Double.compare(parameter.perimeter, perimeter) == 0 &&
-                Double.compare(parameter.area, area) == 0;
+        return Double.doubleToLongBits(this.area) == Double.doubleToLongBits(p.area);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(perimeter, area);
+        final int prime = 31;
+        int result = 1;
+        long temp;
+        temp = Double.doubleToLongBits(area);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(perimeter);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
+        return result;
     }
 
     @Override
     public String toString() {
-        return "QuadrilateralParameter{" +
+        return getClass().getSimpleName() +
                 "perimeter=" + perimeter +
                 ", area=" + area +
                 '}';

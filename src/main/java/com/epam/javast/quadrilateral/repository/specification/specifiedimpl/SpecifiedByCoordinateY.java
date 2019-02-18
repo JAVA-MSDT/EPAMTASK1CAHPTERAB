@@ -13,6 +13,9 @@ public class SpecifiedByCoordinateY implements Specification {
 
     @Override
     public boolean specified(Quadrilateral quadrilateral) {
+        if (quadrilateral == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateral to be null");
+        }
         return  coordinateY == quadrilateral.getPointA().getCoordinateY() ||
                 coordinateY == quadrilateral.getPointB().getCoordinateY() ||
                 coordinateY == quadrilateral.getPointC().getCoordinateY() ||

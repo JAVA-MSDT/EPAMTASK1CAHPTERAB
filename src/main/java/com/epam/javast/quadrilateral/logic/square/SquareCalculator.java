@@ -30,7 +30,7 @@ public class SquareCalculator implements Calculator {
     public double areaCalculator(Quadrilateral quadrilateral) {
 
         if(quadrilateral == null){
-            logger.log(Level.INFO, "Not allow for a null value");
+            throw new IllegalArgumentException("Square Quadrilateral not allow to be null");
         }
 
         double area = 0;
@@ -57,7 +57,7 @@ public class SquareCalculator implements Calculator {
     public double perimeterCalculator(Quadrilateral quadrilateral) {
 
         if(quadrilateral == null){
-            logger.log(Level.INFO, "Not allow for a null value");
+            throw new IllegalArgumentException("Square Quadrilateral not allow to be null");
         }
 
         double perimeter = 0;

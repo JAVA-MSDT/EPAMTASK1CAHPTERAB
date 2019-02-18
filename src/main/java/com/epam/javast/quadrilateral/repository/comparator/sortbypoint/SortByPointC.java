@@ -7,7 +7,9 @@ public class SortByPointC implements QuadrilateralComparator {
 
     @Override
     public int compare(Quadrilateral q1, Quadrilateral q2){
-
+        if (q1 == null || q2 == null) {
+            throw new IllegalArgumentException("not allow for the Quadrilateral q1 or Quadrilateral q2 to be null");
+        }
         return q1.getPointC().hashCode() - q2.getPointC().hashCode();
     }
 }

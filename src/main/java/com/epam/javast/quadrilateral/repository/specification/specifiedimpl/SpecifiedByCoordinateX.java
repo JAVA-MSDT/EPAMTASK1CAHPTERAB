@@ -13,7 +13,9 @@ public class SpecifiedByCoordinateX implements Specification {
 
     @Override
     public boolean specified(Quadrilateral quadrilateral) {
-
+        if (quadrilateral == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateral to be null");
+        }
         return  coordinateX == quadrilateral.getPointA().getCoordinateX() ||
                 coordinateX == quadrilateral.getPointB().getCoordinateX() ||
                 coordinateX == quadrilateral.getPointC().getCoordinateX() ||

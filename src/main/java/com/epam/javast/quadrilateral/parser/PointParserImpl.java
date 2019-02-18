@@ -21,7 +21,7 @@ public class PointParserImpl implements PointParser {
     @Override
     public List<Point> pointParser(List<String> listOfPoints) {
         if (listOfPoints == null) {
-            throw new IllegalArgumentException("Method PointParser has a null argument, It's not allow for a null argument");
+            throw new IllegalArgumentException("not allow for the list of points to be null");
         }
         List<Point> pointList = new ArrayList<>();
 
@@ -42,6 +42,9 @@ public class PointParserImpl implements PointParser {
      * @return list of points
      */
     private List<Point> pointCreator(String[] listOfPoints) {
+        if (listOfPoints == null) {
+            throw new IllegalArgumentException("not allow for the list of points to be null");
+        }
         List<Point> pointList = new ArrayList<>();
         for (String arrayOfPoint : listOfPoints) {
             int delimiter = arrayOfPoint.indexOf(FrequentlyUsedRegex.COMMA_SEPARATOR);

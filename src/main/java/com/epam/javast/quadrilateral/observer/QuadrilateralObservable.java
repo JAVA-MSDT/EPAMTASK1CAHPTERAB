@@ -4,22 +4,25 @@ import com.epam.javast.quadrilateral.observer.api.Observable;
 import com.epam.javast.quadrilateral.observer.api.Observer;
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class QuadrilateralObservable extends Quadrilateral implements Observable {
 
+    private static Logger logger = LogManager.getLogger(QuadrilateralObservable.class);
     private List<Observer> observerList = new ArrayList<>();
 
-    public QuadrilateralObservable(){
+    public QuadrilateralObservable() {
 
     }
+
     public QuadrilateralObservable(Point pointA, Point pointB, Point pointC, Point pointD) {
         super(pointA, pointB, pointC, pointD);
 
     }
-
 
 
     public void setPointA(Point pointA) {
@@ -62,24 +65,35 @@ public class QuadrilateralObservable extends Quadrilateral implements Observable
     public Integer getQuadrilateralId() {
         return super.getQuadrilateralId();
     }
+
     @Override
     public void addObserver(Observer o) {
+        if (o == null) {
+            throw new IllegalArgumentException(" observer not allow to be null");
+        }
         observerList.add(o);
     }
 
     @Override
     public void removeObserver(Observer o) {
-        observerList.remove(o);
+        if (o == null) {
+            throw new IllegalArgumentException(" observer not allow to be null");
+        }
+        if(!observerList.isEmpty()){
+            observerList.remove(o);
+        }
+
+        logger.info("Observer List is empty");
+
     }
 
     @Override
     public void notifyObserver() {
 
-        for (Observer o : observerList){
+        for (Observer o : observerList) {
             o.update(this);
         }
     }
-
 
 
 }

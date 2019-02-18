@@ -21,7 +21,9 @@ public class WriteToFile implements DataWriter {
 
     @Override
     public void save(List<Quadrilateral> quadrilateralList) throws DataSaveException {
-
+        if(quadrilateralList == null){
+            throw new IllegalArgumentException("quadrilateralList not allow to be null");
+        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(quadrilateralToString(quadrilateralList));
         } catch (IOException e) {
@@ -31,6 +33,9 @@ public class WriteToFile implements DataWriter {
 
 
     private String quadrilateralToString(List<Quadrilateral> quadrilateralList) {
+        if(quadrilateralList == null){
+            throw new IllegalArgumentException("quadrilateralList not allow to be null");
+        }
         StringBuilder builder = new StringBuilder();
 
         for (Quadrilateral q : quadrilateralList) {
@@ -47,16 +52,16 @@ public class WriteToFile implements DataWriter {
             String y4 = String.valueOf(q.getPointD().getCoordinateY());
 
             builder.append(x1).append(FrequentlyUsedRegex.COMMA_SEPARATOR);
-            builder.append(y1).append(FrequentlyUsedRegex.SPACE_SPEARATOR);
+            builder.append(y1).append(FrequentlyUsedRegex.SPACE_SEPARATOR);
 
             builder.append(x2).append(FrequentlyUsedRegex.COMMA_SEPARATOR);
-            builder.append(y2).append(FrequentlyUsedRegex.SPACE_SPEARATOR);
+            builder.append(y2).append(FrequentlyUsedRegex.SPACE_SEPARATOR);
 
             builder.append(x3).append(FrequentlyUsedRegex.COMMA_SEPARATOR);
-            builder.append(y3).append(FrequentlyUsedRegex.SPACE_SPEARATOR);
+            builder.append(y3).append(FrequentlyUsedRegex.SPACE_SEPARATOR);
 
             builder.append(x4).append(FrequentlyUsedRegex.COMMA_SEPARATOR);
-            builder.append(y4).append(FrequentlyUsedRegex.SPACE_SPEARATOR);
+            builder.append(y4).append(FrequentlyUsedRegex.SPACE_SEPARATOR);
 
             builder.append("\n");
         }

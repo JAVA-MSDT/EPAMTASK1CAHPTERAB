@@ -14,25 +14,37 @@ public class Quadrilateral {
 
     }
     public Quadrilateral(Point pointA, Point pointB, Point pointC, Point pointD){
-        this.pointA = pointA;
-        this.pointB = pointB;
-        this.pointC = pointC;
-        this.pointD = pointD;
+        setPointA(pointA);
+        setPointB(pointB);
+        setPointC(pointC);
+        setPointD(pointD);
     }
 
     public void setPointA(Point pointA) {
+        if(pointA == null){
+            throw new IllegalArgumentException("pointA not allow to be null");
+        }
         this.pointA = pointA;
     }
 
     public void setPointB(Point pointB) {
+        if(pointB == null){
+            throw new IllegalArgumentException("pointB not allow to be null");
+        }
         this.pointB = pointB;
     }
 
     public void setPointC(Point pointC) {
+        if(pointC == null){
+            throw new IllegalArgumentException("pointC not allow to be null");
+        }
         this.pointC = pointC;
     }
 
     public void setPointD(Point pointD) {
+        if(pointD == null){
+            throw new IllegalArgumentException("pointD not allow to be null");
+        }
         this.pointD = pointD;
     }
 
@@ -46,9 +58,6 @@ public class Quadrilateral {
 
     public void setGeneratedQuadrilateralId(){
         this.quadrilateralId = IdGenerator.idGenerator();
-        /*if(this.quadrilateralId == 0){
-
-        }*/
     }
 
     public Integer getQuadrilateralId() {

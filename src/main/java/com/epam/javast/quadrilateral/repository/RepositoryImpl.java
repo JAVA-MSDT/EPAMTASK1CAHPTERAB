@@ -5,7 +5,6 @@ import com.epam.javast.quadrilateral.repository.api.Repository;
 import com.epam.javast.quadrilateral.repository.comparator.api.QuadrilateralComparator;
 import com.epam.javast.quadrilateral.repository.specification.api.Specification;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import org.apache.log4j.Level;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -26,8 +25,8 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
 
     @Override
     public void add(Quadrilateral quadrilateral) {
-        if(quadrilateral == null){
-            throw new IllegalArgumentException("It's not allow for a null value!!");
+        if (quadrilateral == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateral to be null");
         }
         quadrilateralList.add(quadrilateral);
 
@@ -35,8 +34,8 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
 
     @Override
     public void add(Iterable<Quadrilateral> quadrilaterals) {
-        if(quadrilaterals == null){
-            throw new IllegalArgumentException("It's not allow for a null value!!");
+        if (quadrilaterals == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateralList to be null");
         }
         for(Quadrilateral q : quadrilaterals){
             quadrilateralList.add(q);
@@ -45,21 +44,21 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
 
     @Override
     public void remove(Quadrilateral quadrilateral) {
-        if(quadrilateral == null){
-            throw new IllegalArgumentException("It's not allow for a null value!!");
+        if (quadrilateral == null) {
+            throw new IllegalArgumentException("not allow for the quadrilateralList to be null");
         }
-
-        if(! quadrilateralList.contains(quadrilateral)){
-            logger.log(Level.ERROR, "quadrilateral object not in the list");
+        if(!quadrilateralList.isEmpty()) {
+            quadrilateralList.remove(quadrilateral);
         }
+        logger.info("quadrilateralList is empty");
 
-        quadrilateralList.remove(quadrilateral);
+
     }
 
     @Override
     public void remove(Specification specification) {
-        if(specification == null){
-            throw new IllegalArgumentException("It's not allow for a null value!!");
+        if (specification == null) {
+            throw new IllegalArgumentException("not allow for the specification to be null");
         }
         if(!quadrilateralList.isEmpty()){
             for(Quadrilateral q : quadrilateralList){
@@ -68,7 +67,7 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
                 }
             }
         }
-
+        logger.info("quadrilateralList is empty");
     }
 
     @Override
@@ -77,20 +76,19 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
             throw new IllegalArgumentException("It's not allow for a null value!!");
         }
 
-        if(! quadrilateralList.contains(oldQuadrilateral)){
-            logger.log(Level.ERROR, "quadrilateral object not in the list");
+        if(!quadrilateralList.contains(oldQuadrilateral)){
+            logger.info("The oldQuadrilateral object is not exist in the quadrilateralList so we can not update it");
+
+
         }
         int quadrilateralIndex = quadrilateralList.indexOf(oldQuadrilateral);
         quadrilateralList.set(quadrilateralIndex, newQuadrilateral);
-
-
-
     }
 
     @Override
     public List<Quadrilateral> query(Specification specification) {
-        if(specification == null){
-            throw new IllegalArgumentException("It's not allow for a null value!!");
+        if (specification == null) {
+            throw new IllegalArgumentException("not allow for the specification to be null");
         }
         List<Quadrilateral> findingQuadrilateral = new ArrayList<>();
 
@@ -106,6 +104,9 @@ public class RepositoryImpl implements Repository, QuadrilateralSort {
 
     @Override
     public void sort(Quadrilateral quadrilateral, QuadrilateralComparator compare) {
+        if (quadrilateralList == null || compare == null) {
+            throw new IllegalArgumentException("Not allow for the quadrilateralList or QuadrilateralComparator to be null");
+        }
         for(int i = 0; i < quadrilateralList.size(); i++){
             for (int x = i; x < quadrilateralList.size(); x++){
                 if(compare.compare(quadrilateralList.get(i), quadrilateralList.get(x)) > 0){

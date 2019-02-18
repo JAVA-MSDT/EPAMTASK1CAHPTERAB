@@ -26,7 +26,7 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
     @Override
     public List<Quadrilateral> quadrilateralParser(List<Point> pointList) {
         if (pointList == null) {
-            throw new IllegalArgumentException("Method quadrilateralParser has a null argument, It's not allow for a null argument");
+            throw new IllegalArgumentException("not allow for the pointList to be null");
         }
         List<Quadrilateral> quadrilateralList = new ArrayList<>();
         for (List<Point> aPointsList : fourPointList(pointList)) {
@@ -51,7 +51,9 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
      * @return list of point list contains of 4 points each list.
      */
     private List<List<Point>> fourPointList(List<Point> pointList) {
-
+        if (pointList == null) {
+            throw new IllegalArgumentException("not allow for the pointList to be null");
+        }
         List<Point> coordinate = new ArrayList<>();
         List<List<Point>> fourPointsList = new ArrayList<>();
 

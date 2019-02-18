@@ -9,14 +9,14 @@ import com.epam.javast.quadrilateral.logic.CalculatorHelper;
  */
 public class RhombusValidator {
 
-    private CalculatorHelper frequentlyUsedFormula = new CalculatorHelper();
+    private CalculatorHelper calculatorHelper = new CalculatorHelper();
 
     /**
      * Check if the figure is Rhombus or not by checking the distance between the two diagonal of the shape if they are not equals,
      * then checking if each two points that form side of the Rhombus,
-     * if the side of the Rhombus are equals so it is a square.
+     * if the side of the Rhombus are equals so it is a Rhombus.
      * @param quadrilateral shape to check if it is a Rhombus
-     * @return true if the shape is a square, false if it is not a Rhombus.
+     * @return true if the shape is a Rhombus, false if it is not a Rhombus.
      */
     public boolean isRhombus(Quadrilateral quadrilateral) {
 
@@ -29,13 +29,13 @@ public class RhombusValidator {
         Point pointC = quadrilateral.getPointC();
         Point pointD = quadrilateral.getPointD();
 
-        double sideAB = frequentlyUsedFormula.distance(pointA, pointB);
-        double sideBC = frequentlyUsedFormula.distance(pointB, pointC);
-        double sideCD = frequentlyUsedFormula.distance(pointC, pointD);
-        double sideDA = frequentlyUsedFormula.distance(pointD, pointA);
+        double sideAB = calculatorHelper.distance(pointA, pointB);
+        double sideBC = calculatorHelper.distance(pointB, pointC);
+        double sideCD = calculatorHelper.distance(pointC, pointD);
+        double sideDA = calculatorHelper.distance(pointD, pointA);
 
-        double diagonalAC = frequentlyUsedFormula.distance(pointA, pointC);
-        double diagonalBD = frequentlyUsedFormula.distance(pointB, pointD);
+        double diagonalAC = calculatorHelper.distance(pointA, pointC);
+        double diagonalBD = calculatorHelper.distance(pointB, pointD);
 
         if (diagonalAC != diagonalBD) {
             return sideAB == sideBC && sideBC == sideCD && sideCD == sideDA;

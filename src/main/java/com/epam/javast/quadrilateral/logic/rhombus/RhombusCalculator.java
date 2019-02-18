@@ -29,7 +29,7 @@ public class RhombusCalculator implements Calculator {
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
         if(quadrilateral == null){
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("Rhombus Quadrilateral not allow to be null");
         }
         double area = 0;
         Point pointA = quadrilateral.getPointA();
@@ -56,7 +56,7 @@ public class RhombusCalculator implements Calculator {
     public double perimeterCalculator(Quadrilateral quadrilateral) {
 
         if(quadrilateral == null){
-            logger.log(Level.INFO, "Not allow for a null value");
+            throw new IllegalArgumentException("Rhombus Quadrilateral not allow to be null");
         }
 
         double perimeter = 0;

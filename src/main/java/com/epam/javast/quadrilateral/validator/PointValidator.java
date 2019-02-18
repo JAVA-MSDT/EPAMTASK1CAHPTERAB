@@ -15,6 +15,9 @@ public class PointValidator {
      * @return true if the string valid 4 points also they are all numbers.
      */
     public boolean isValidPoint(String[] arrayOfPoints) {
+        if(arrayOfPoints == null){
+            throw new IllegalArgumentException("arrayOfPoints is not allow to be null");
+        }
         int invalidCoordinate = 0;
         if (arrayOfPoints.length < FrequentlyUsedRegex.VALID_ARRAY_POINTS_LENGTH ||
                 arrayOfPoints.length > FrequentlyUsedRegex.VALID_ARRAY_POINTS_LENGTH) {

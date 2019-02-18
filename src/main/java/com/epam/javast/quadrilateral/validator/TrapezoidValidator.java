@@ -6,7 +6,7 @@ import com.epam.javast.quadrilateral.logic.CalculatorHelper;
 
 public class TrapezoidValidator {
 
-    private CalculatorHelper frequentlyUsedFormula = new CalculatorHelper();
+    private CalculatorHelper calculatorHelper = new CalculatorHelper();
 
     /**
      * Check if the figure is a Trapezoid or not .
@@ -23,10 +23,10 @@ public class TrapezoidValidator {
         Point pointC = quadrilateral.getPointC();
         Point pointD = quadrilateral.getPointD();
 
-        double sideAB = frequentlyUsedFormula.slope(pointA, pointB);
-        double sideBC = frequentlyUsedFormula.slope(pointB, pointC);
-        double sideCD = frequentlyUsedFormula.slope(pointC, pointD);
-        double sideDA = frequentlyUsedFormula.slope(pointD, pointA);
+        double sideAB = calculatorHelper.slope(pointA, pointB);
+        double sideBC = calculatorHelper.slope(pointB, pointC);
+        double sideCD = calculatorHelper.slope(pointC, pointD);
+        double sideDA = calculatorHelper.slope(pointD, pointA);
 
         if(sideAB == sideCD && sideBC != sideDA){
             return true;

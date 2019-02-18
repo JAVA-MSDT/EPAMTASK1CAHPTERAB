@@ -17,7 +17,11 @@ import java.util.List;
 public class ReadFromFile implements DataReader {
 
     private Logger logger = LogManager.getLogger(ReadFromFile.class);
+
     public List<String> read(String url) throws DataReaderException {
+        if(url == null || url.isEmpty()){
+            throw new IllegalArgumentException("URI is not allow to be null or empty");
+        }
         List<String> point = new ArrayList<>();
 
         try ( BufferedReader bufferedReader = new BufferedReader(new FileReader(url))){

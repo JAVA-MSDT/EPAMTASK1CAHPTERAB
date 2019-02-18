@@ -16,6 +16,9 @@ public class CalculatorHelper {
      * @return the distance between 2 points A and B
      */
     public double distance(Point pointA, Point pointB){
+        if(pointA == null || pointB == null){
+            throw new IllegalArgumentException(" not allow for PointA or PointB to be null");
+        }
 
         int x1 = pointA.getCoordinateX();
         int y1 = pointA.getCoordinateY();
@@ -34,6 +37,9 @@ public class CalculatorHelper {
      * @return the slope of  betwwen t2 Points A and B
      */
     public double slope(Point pointA, Point pointB){
+        if(pointA == null || pointB == null){
+            throw new IllegalArgumentException(" not allow for PointA or PointB to be null");
+        }
         int x1 = pointA.getCoordinateX();
         int y1 = pointA.getCoordinateY();
 
