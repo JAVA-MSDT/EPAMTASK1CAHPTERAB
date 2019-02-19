@@ -4,6 +4,7 @@ import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import com.epam.javast.quadrilateral.parser.api.QuadrilateralParser;
 import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
+import com.epam.javast.quadrilateral.validator.ConvexValidator;
 import com.epam.javast.quadrilateral.validator.QuadrilateralValidator;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 public class QuadrilateralParserImpl implements QuadrilateralParser {
 
     private QuadrilateralValidator quadrilateralValidator = new QuadrilateralValidator();
+    private ConvexValidator convexValidator = new ConvexValidator();
     private Point pointA;
     private Point pointB;
     private Point pointC;
@@ -34,7 +36,10 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
             pointB = aPointsList.get(1);
             pointC = aPointsList.get(2);
             pointD = aPointsList.get(3);
-            if(!quadrilateralValidator.isValidQuadrilateral(pointA, pointB, pointC, pointD)){
+
+            if((!quadrilateralValidator.isValidQuadrilateral(pointA, pointB, pointC, pointD)) &&
+                    (convexValidator.isConvex(pointA, pointB, pointC, pointD))){
+
                 quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
                 //quadrilateral.setGeneratedQuadrilateralId();
                 quadrilateralList.add(quadrilateral);

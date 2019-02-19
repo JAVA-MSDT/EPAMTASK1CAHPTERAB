@@ -17,7 +17,7 @@ public class SquareValidatorTest {
     private Quadrilateral quadrilateral;
 
     @Test
-    public void isSquareTestPass(){
+    public void isSquareTestReturnTrue(){
 
         pointA = new Point(10 ,20);
         pointB = new Point(20, 20);
@@ -27,13 +27,12 @@ public class SquareValidatorTest {
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
         boolean actual = square.isSquare(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
-    public void isSquareTestFail(){
+    public void isSquareTestReturnFalse(){
 
         pointA = new Point(15 ,20);
         pointB = new Point(20, 20);
@@ -43,8 +42,7 @@ public class SquareValidatorTest {
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
         boolean actual = square.isSquare(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(actual);
     }
 }

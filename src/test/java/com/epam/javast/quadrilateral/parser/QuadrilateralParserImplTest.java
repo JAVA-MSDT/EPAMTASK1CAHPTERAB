@@ -23,8 +23,14 @@ public class QuadrilateralParserImplTest {
     private Point pointG = new Point(10, 10);
     private Point pointH = new Point(20, 10);
 
+    private Point pointI = new Point(3, 4);
+    private Point pointJ = new Point(5, 11);
+    private Point pointK = new Point(12, 8);
+    private Point pointL = new Point(5, 6);
+
     private Quadrilateral quadrilateralA = new Quadrilateral(pointA, pointB, pointC, pointD);
     private Quadrilateral quadrilateralB = new Quadrilateral(pointE, pointF, pointG, pointH);
+    private Quadrilateral quadrilateralC = new Quadrilateral(pointI, pointJ, pointK, pointL);
 
 
 @Test
@@ -40,6 +46,11 @@ public class QuadrilateralParserImplTest {
         pointList.add(pointF);
         pointList.add(pointG);
         pointList.add(pointH);
+
+        pointList.add(pointI);
+        pointList.add(pointJ);
+        pointList.add(pointK);
+        pointList.add(pointL);
 
         List<Quadrilateral> actual = quadrilateralParser.quadrilateralParser(pointList);
         List<Quadrilateral> expected = Arrays.asList(quadrilateralA, quadrilateralB);

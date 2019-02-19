@@ -8,22 +8,20 @@ public class NumericValueValidatorTest {
     private static final NumericValueValidator numericValue = new NumericValueValidator();
 
     @Test
-    public void isNumericTestPass(){
+    public void isNumericTestReturnTrue(){
         String number = "4400";
 
         boolean actual = numericValue.isNumeric(number);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
-    public void isNumericTestFail(){
+    public void isNumericTestReturnFalse(){
         String number = "4400Done";
 
         boolean actual = numericValue.isNumeric(number);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(actual);
     }
 }

@@ -14,28 +14,27 @@ public class QuadrilateralValidatorTest {
     private Point pointD;
 
     @Test
-    public void isValidQuadrilateralTestPass(){
+    public void isValidQuadrilateralTestReturnTrue(){
+
          pointA = new Point(1, 5);
          pointB = new Point(10, 5);
          pointC = new Point(3, 8);
          pointD = new Point(10, 5);
 
          boolean actual = validator.isValidQuadrilateral(pointA, pointB, pointC, pointD);
-         boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
-    public void isValidQuadrilateralTestFail(){
+    public void isValidQuadrilateralTestReturnFalse(){
         pointA = new Point(1, 15);
         pointB = new Point(10, 0);
         pointC = new Point(3, 8);
         pointD = new Point(10, 5);
 
         boolean actual = validator.isValidQuadrilateral(pointA, pointB, pointC, pointD);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(actual);
     }
 }

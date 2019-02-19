@@ -17,7 +17,7 @@ public class RhombusValidatorTest {
     private Quadrilateral quadrilateral;
 
     @Test
-    public void isRhombusTestPass(){
+    public void isRhombusTestReturnTrue(){
          pointA = new Point(5 ,8);
          pointB = new Point(7, 5);
          pointC = new Point(5,2);
@@ -25,13 +25,12 @@ public class RhombusValidatorTest {
 
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
         boolean actual = rhombus.isRhombus(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
-    public void isRhombusTestFail(){
+    public void isRhombusTestReturnFalse(){
          pointA = new Point(10 ,20);
          pointB = new Point(20, 20);
          pointC = new Point(10,10);
@@ -39,8 +38,7 @@ public class RhombusValidatorTest {
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
         boolean actual = rhombus.isRhombus(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(actual);
     }
 }

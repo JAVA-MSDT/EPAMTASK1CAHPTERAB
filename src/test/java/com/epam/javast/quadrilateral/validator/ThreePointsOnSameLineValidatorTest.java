@@ -14,9 +14,8 @@ public class ThreePointsOnSameLineValidatorTest {
         Point pointB = new Point(1, 6);
         Point pointC = new Point(1, -4);
         boolean actual = threePointsOnSameLineValidator.isThreePointsOnSameLine(pointA, pointB, pointC);
-        boolean expected = true;
 
-        Assert.assertEquals(actual, expected);
+        Assert.assertTrue(actual);
     }
 
     @Test
@@ -25,8 +24,7 @@ public class ThreePointsOnSameLineValidatorTest {
         Point pointB = new Point(1, 6);
         Point pointC = new Point(0, 9);
         boolean actual = threePointsOnSameLineValidator.isThreePointsOnSameLine(pointA, pointB, pointC);
-        boolean expected = false;
 
-        Assert.assertEquals(actual, expected);
+        Assert.assertFalse(actual);
     }
 }

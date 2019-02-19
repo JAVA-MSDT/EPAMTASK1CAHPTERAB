@@ -16,7 +16,7 @@ public class TrapezoidValidatorTest {
     private Quadrilateral quadrilateral;
 
     @Test
-    public void isTrapezoidTestPass(){
+    public void isTrapezoidTestReturnTrue(){
 
         pointA = new Point(-3,-3);
         pointB = new Point(5, 1);
@@ -26,13 +26,12 @@ public class TrapezoidValidatorTest {
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
         boolean actual = trapezoid.isTrapezoid(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
     }
 
     @Test
-    public void isTrapezoidTestFail(){
+    public void isTrapezoidTestReturnFalse(){
 
         pointA = new Point(-10,-3);
         pointB = new Point(5, 51);
@@ -42,8 +41,7 @@ public class TrapezoidValidatorTest {
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
         boolean actual = trapezoid.isTrapezoid(quadrilateral);
-        boolean expected = true;
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(actual);
     }
 }

@@ -8,22 +8,22 @@ public class PointValidatorTest {
     private static final PointValidator pointValidator = new PointValidator();
 
     @Test
-    public void isValidPointTestPass() {
+    public void isValidPointTestReturnTrue() {
         String[] validPoint = {"1,5", "2,3", "4,5", "6,4"};
 
         boolean actual = pointValidator.isValidPoint(validPoint);
 
-        Assert.assertTrue("isValidPointTestPass", actual);
+        Assert.assertTrue(actual);
 
     }
 
     @Test
-    public void isValidPointTestFail() {
+    public void isValidPointTestReturnFalse() {
         String[] validPoint = {"1,5", "2,3", "4,5", "6,F"};
 
         boolean actual = pointValidator.isValidPoint(validPoint);
 
-        Assert.assertFalse("Test is false", actual);
+        Assert.assertFalse(actual);
 
     }
 }
