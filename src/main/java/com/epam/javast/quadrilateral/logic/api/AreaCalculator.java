@@ -1,4 +1,4 @@
-package com.epam.javast.quadrilateral.logic.calculatorapi;
+package com.epam.javast.quadrilateral.logic.api;
 
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 

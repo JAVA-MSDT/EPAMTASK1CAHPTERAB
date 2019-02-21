@@ -16,7 +16,7 @@ public class PointParserImpl implements PointParser {
      * to parse the list of point List into list of point object.
      *
      * @param listOfPoints to parse into list of point object
-     * @return list of valid point object
+     * @return list of isValidRectangle point object
      */
     @Override
     public List<Point> pointParser(List<String> listOfPoints) {
@@ -38,7 +38,7 @@ public class PointParserImpl implements PointParser {
     /**
      * helper method to clean the code inside  method (pointParser)
      *
-     * @param listOfPoints that is already valid
+     * @param listOfPoints that is already isValidRectangle
      * @return list of points
      */
     private List<Point> pointCreator(String[] listOfPoints) {

@@ -1,7 +1,7 @@
 package com.epam.javast.quadrilateral.logic;
 
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
+import com.epam.javast.quadrilateral.logic.api.Calculator;
 
 /**
  * QuadrilateralCalculator has only 2 methods AreaCalculator and PerimeterCalculator.

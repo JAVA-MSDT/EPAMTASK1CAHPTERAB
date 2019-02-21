@@ -1,4 +1,4 @@
-package com.epam.javast.quadrilateral.validator;
+package com.epam.javast.quadrilateral.validator.quadrilateralvalidator;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
@@ -9,7 +9,7 @@ import com.epam.javast.quadrilateral.logic.CalculatorHelper;
  */
 public class SquareValidator {
 
-    private CalculatorHelper frequentlyUsedFormula = new CalculatorHelper();
+    private CalculatorHelper calculatorHelper = new CalculatorHelper();
 
     /**
      * Check if the figure is a square or not by checking the distance between the two diagonal of the shape if they are equals.
@@ -27,9 +27,19 @@ public class SquareValidator {
         Point pointC = quadrilateral.getPointC();
         Point pointD = quadrilateral.getPointD();
 
-        double diagonalAC = frequentlyUsedFormula.distance(pointA, pointC);
-        double diagonalBD = frequentlyUsedFormula.distance(pointB, pointD);
+        double sideAB = calculatorHelper.distance(pointA, pointB);
+        double sideBC = calculatorHelper.distance(pointB, pointC);
+        double sideCD = calculatorHelper.distance(pointC, pointD);
+        double sideDA = calculatorHelper.distance(pointD, pointA);
 
-        return diagonalAC == diagonalBD;
+        double diagonalAC = calculatorHelper.distance(pointA, pointC);
+        double diagonalBD = calculatorHelper.distance(pointB, pointD);
+
+        if (diagonalAC == diagonalBD) {
+            return sideAB == sideBC && sideBC == sideCD && sideCD == sideDA;
+        }
+
+        return false;
     }
+
 }

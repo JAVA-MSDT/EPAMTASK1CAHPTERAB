@@ -2,10 +2,9 @@ package com.epam.javast.quadrilateral.logic.square;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
+import com.epam.javast.quadrilateral.logic.api.Calculator;
 import com.epam.javast.quadrilateral.logic.CalculatorHelper;
-import com.epam.javast.quadrilateral.validator.SquareValidator;
-import org.apache.log4j.Level;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.SquareValidator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -19,6 +18,11 @@ public class SquareCalculator implements Calculator {
     private Logger logger = LogManager.getLogger(SquareCalculator.class);
     private SquareValidator square = new SquareValidator();
     private CalculatorHelper frequentlyUsedFormula = new CalculatorHelper();
+
+    @Override
+    public String getFigureName(){
+        return "Square";
+    }
 
     /**
      *

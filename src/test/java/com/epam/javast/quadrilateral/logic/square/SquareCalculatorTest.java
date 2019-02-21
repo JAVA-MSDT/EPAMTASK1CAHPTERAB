@@ -2,25 +2,51 @@ package com.epam.javast.quadrilateral.logic.square;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
+import com.epam.javast.quadrilateral.logic.rhombus.RhombusCalculator;
+import org.junit.AfterClass;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SquareCalculatorTest {
 
-    private static final SquareCalculator squareCalculator = new SquareCalculator();
+    private static  SquareCalculator squareCalculator;
 
     private static final double DELTA = 0.01;
-    private static final Point pointA = new Point(10,20);
-    private static final Point pointB = new Point(20,20);
-    private static final Point pointC = new Point(10,10);
-    private static final Point pointD = new Point(20,10);
+    private static  Point pointA;
+    private static  Point pointB;
+    private static  Point pointC;
+    private static  Point pointD;
 
-    private Quadrilateral quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
+    private static Quadrilateral quadrilateral;
 
+    @BeforeClass
+    public static void init() {
+        squareCalculator = new SquareCalculator();
+
+        pointA = new Point(2, 5);
+        pointB = new Point(6, 5);
+        pointC = new Point(6, 1);
+        pointD = new Point(2, 1);
+
+        quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
+    }
+
+    @AfterClass
+    public static void close(){
+        squareCalculator = null;
+
+        pointA = null;
+        pointB = null;
+        pointC = null;
+        pointD = null;
+
+        quadrilateral = null;
+    }
     @Test
     public void squareAreaCalculatorTestPass(){
         double actual = squareCalculator.areaCalculator(quadrilateral);
-        double expected = 100;
+        double expected = 16;
 
         Assert.assertEquals(expected, actual, DELTA);
 
@@ -38,7 +64,7 @@ public class SquareCalculatorTest {
     @Test
     public void squarePerimeterCalculatorTestPass(){
         double actual = squareCalculator.perimeterCalculator(quadrilateral);
-        double expected = 40;
+        double expected = 16;
 
         Assert.assertEquals(expected, actual, DELTA);
 

@@ -1,6 +1,7 @@
-package com.epam.javast.quadrilateral.validator;
+package com.epam.javast.quadrilateral.validator.quadrilateralvalidator;
 
 import com.epam.javast.quadrilateral.entity.Point;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.QuadrilateralValidator;
 import org.junit.Assert;
 import org.junit.Test;
 

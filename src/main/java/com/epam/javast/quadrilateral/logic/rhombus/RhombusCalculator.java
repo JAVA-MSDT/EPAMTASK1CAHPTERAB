@@ -2,10 +2,9 @@ package com.epam.javast.quadrilateral.logic.rhombus;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
+import com.epam.javast.quadrilateral.logic.api.Calculator;
 import com.epam.javast.quadrilateral.logic.CalculatorHelper;
-import com.epam.javast.quadrilateral.validator.RhombusValidator;
-import org.apache.log4j.Level;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.RhombusValidator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -20,6 +19,9 @@ public class RhombusCalculator implements Calculator {
     private RhombusValidator rhombusValidator = new RhombusValidator();
     private CalculatorHelper frequentlyUsedFormula = new CalculatorHelper();
 
+    public String getFigureName(){
+        return "Rhombus";
+    }
     /**
      *
      * @param quadrilateral that we need to calculate is area after checking

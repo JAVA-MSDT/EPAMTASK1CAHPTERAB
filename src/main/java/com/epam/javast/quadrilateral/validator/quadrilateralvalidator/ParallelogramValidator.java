@@ -1,25 +1,17 @@
-package com.epam.javast.quadrilateral.logic.trapezoid;
+package com.epam.javast.quadrilateral.validator.quadrilateralvalidator;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import com.epam.javast.quadrilateral.logic.CalculatorHelper;
-import com.epam.javast.quadrilateral.logic.api.Calculator;
 
-public class TrapezoidCalculator implements Calculator {
-
+public class ParallelogramValidator {
     private CalculatorHelper calculatorHelper = new CalculatorHelper();
-    public String getFigureName(){
-        return "Trapezoid";
-    }
 
-    @Override
-    public double areaCalculator(Quadrilateral quadrilateral) {
-        return 0;
-    }
+    public boolean isValidParallelogram(Quadrilateral quadrilateral) {
+        if (quadrilateral == null) {
+            return false;
+        }
 
-
-    @Override
-    public double perimeterCalculator(Quadrilateral quadrilateral) {
         Point pointA = quadrilateral.getPointA();
         Point pointB = quadrilateral.getPointB();
         Point pointC = quadrilateral.getPointC();
@@ -30,6 +22,13 @@ public class TrapezoidCalculator implements Calculator {
         double sideCD = calculatorHelper.distance(pointC, pointD);
         double sideDA = calculatorHelper.distance(pointD, pointA);
 
-        return sideAB + sideBC + sideCD + sideDA;
+        double diagonalAC = calculatorHelper.distance(pointA, pointC);
+        double diagonalBD = calculatorHelper.distance(pointB, pointD);
+
+        if (sideAB == sideCD && sideBC == sideDA) {
+            return diagonalAC != diagonalBD;
+        }
+
+        return false;
     }
 }

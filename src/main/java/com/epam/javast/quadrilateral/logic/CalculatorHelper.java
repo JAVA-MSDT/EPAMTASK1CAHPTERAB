@@ -40,11 +40,11 @@ public class CalculatorHelper {
         if(pointA == null || pointB == null){
             throw new IllegalArgumentException(" not allow for PointA or PointB to be null");
         }
-        int x1 = pointA.getCoordinateX();
-        int y1 = pointA.getCoordinateY();
+        double x1 = pointA.getCoordinateX();
+        double y1 = pointA.getCoordinateY();
 
-        int x2 = pointB.getCoordinateX();
-        int y2 = pointB.getCoordinateY();
+        double x2 = pointB.getCoordinateX();
+        double y2 = pointB.getCoordinateY();
 
         return (y2 - y1) / (x2 - x1);
     }

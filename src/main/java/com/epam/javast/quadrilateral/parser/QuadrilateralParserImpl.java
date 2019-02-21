@@ -4,8 +4,8 @@ import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
 import com.epam.javast.quadrilateral.parser.api.QuadrilateralParser;
 import com.epam.javast.quadrilateral.util.regexpackage.FrequentlyUsedRegex;
-import com.epam.javast.quadrilateral.validator.ConvexValidator;
-import com.epam.javast.quadrilateral.validator.QuadrilateralValidator;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.ConvexValidator;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.QuadrilateralValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
 
     /**
      * To create a list of quadrilateral figures after checking that no 3 points on the same line
-     * @param pointList valid point list to form a quadrilateral figure.
+     * @param pointList isValidRectangle point list to form a quadrilateral figure.
      * @return list of quadrilateral figures.
      */
     @Override
@@ -52,7 +52,7 @@ public class QuadrilateralParserImpl implements QuadrilateralParser {
     /**
      * Helper method to return list of list containing just 4 points which we can use to form a quadrilateral figure
      * we are using it in the quadrilateralParser method.
-     * @param pointList valid point list to form a quadrilateral figure.
+     * @param pointList isValidRectangle point list to form a quadrilateral figure.
      * @return list of point list contains of 4 points each list.
      */
     private List<List<Point>> fourPointList(List<Point> pointList) {

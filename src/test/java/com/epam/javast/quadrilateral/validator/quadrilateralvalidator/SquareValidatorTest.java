@@ -1,7 +1,8 @@
-package com.epam.javast.quadrilateral.validator;
+package com.epam.javast.quadrilateral.validator.quadrilateralvalidator;
 
 import com.epam.javast.quadrilateral.entity.Point;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.SquareValidator;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -19,10 +20,10 @@ public class SquareValidatorTest {
     @Test
     public void isSquareTestReturnTrue(){
 
-        pointA = new Point(10 ,20);
+        pointA = new Point(20 ,10);
         pointB = new Point(20, 20);
-        pointC = new Point(10,10);
-        pointD = new Point(20,10);
+        pointC = new Point(10,20);
+        pointD = new Point(10,10);
 
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
 
@@ -34,7 +35,7 @@ public class SquareValidatorTest {
     @Test
     public void isSquareTestReturnFalse(){
 
-        pointA = new Point(15 ,20);
+        pointA = new Point(10 ,20);
         pointB = new Point(20, 20);
         pointC = new Point(10,10);
         pointD = new Point(20,10);

@@ -3,7 +3,7 @@ package com.epam.javast.quadrilateral.observer;
 import com.epam.javast.quadrilateral.entity.QuadrilateralParameter;
 import com.epam.javast.quadrilateral.observer.api.Observer;
 import com.epam.javast.quadrilateral.entity.Quadrilateral;
-import com.epam.javast.quadrilateral.logic.calculatorapi.Calculator;
+import com.epam.javast.quadrilateral.logic.api.Calculator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

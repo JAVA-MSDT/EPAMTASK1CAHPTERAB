@@ -1,6 +1,7 @@
-package com.epam.javast.quadrilateral.validator;
+package com.epam.javast.quadrilateral.validator.quadrilateralvalidator;
 
 import com.epam.javast.quadrilateral.entity.Point;
+import com.epam.javast.quadrilateral.validator.quadrilateralvalidator.ConvexValidator;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -24,14 +25,6 @@ public class ConvexValidatorTest {
         convexValidator = null;
     }
 
-    @Test
-    public void compareThreePointsTest() {
-        Point pointA;
-        Point pointB;
-        Point pointC;
-
-
-    }
 
     @Test
     public void isConvexTestReturnTrue(){
