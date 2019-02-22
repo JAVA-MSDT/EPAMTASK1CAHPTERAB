@@ -44,7 +44,7 @@ public class ParallelogramCalculatorTest {
     @Test
     public void parallelogramAreaCalculatorTestPass() {
         double actual = parallelogramCalculator.areaCalculator(quadrilateral);
-        double expected = 0;
+        double expected = 90.99;
 
         Assert.assertEquals(expected, actual, DELTA);
 
@@ -53,7 +53,7 @@ public class ParallelogramCalculatorTest {
     @Test
     public void parallelogramAreaCalculatorTestFail() {
         double actual = parallelogramCalculator.areaCalculator(quadrilateral);
-        double expected = 0;
+        double expected = 100;
 
         Assert.assertEquals(expected, actual, DELTA);
 

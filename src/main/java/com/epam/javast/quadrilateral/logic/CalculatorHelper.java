@@ -48,4 +48,15 @@ public class CalculatorHelper {
 
         return (y2 - y1) / (x2 - x1);
     }
+
+
+    public double triangleArea(double sideA, double sideB, double sideC){
+
+        double halfPerimeter = (sideA + sideB + sideC) / 2;
+        double s1 = halfPerimeter - sideA;
+        double s2 = halfPerimeter - sideB;
+        double s3 = halfPerimeter - sideC;
+
+        return Math.sqrt(halfPerimeter * s1 * s2 * s3);
+    }
 }

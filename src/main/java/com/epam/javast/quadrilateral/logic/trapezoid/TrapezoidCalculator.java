@@ -14,7 +14,22 @@ public class TrapezoidCalculator implements Calculator {
 
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
-        return 0;
+        Point pointA = quadrilateral.getPointA();
+        Point pointB = quadrilateral.getPointB();
+        Point pointC = quadrilateral.getPointC();
+        Point pointD = quadrilateral.getPointD();
+
+        double sideAB = calculatorHelper.distance(pointA, pointB);
+        double sideBC = calculatorHelper.distance(pointB, pointC);
+        double sideCD = calculatorHelper.distance(pointC, pointD);
+        double sideDA = calculatorHelper.distance(pointD, pointA);
+
+        double diagonalAC = calculatorHelper.distance(pointA, pointC);
+
+        double firstTriangleArea = calculatorHelper.triangleArea(sideAB, sideBC, diagonalAC);
+        double secondTriangleArea = calculatorHelper.triangleArea(sideCD, sideDA, diagonalAC);
+
+        return firstTriangleArea + secondTriangleArea;
     }
 
 

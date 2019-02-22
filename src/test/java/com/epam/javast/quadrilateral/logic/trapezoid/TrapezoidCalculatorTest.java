@@ -23,10 +23,10 @@ public class TrapezoidCalculatorTest {
     public static void init() {
         trapezoidCalculator = new TrapezoidCalculator();
 
-        pointA = new Point(-3,-3);
-        pointB = new Point(5, 1);
-        pointC = new Point(10,-2);
-        pointD = new Point(-4,-9);
+        pointA = new Point(12,28);
+        pointB = new Point(34, 28);
+        pointC = new Point(53,7);
+        pointD = new Point(6,7);
 
         quadrilateral = new Quadrilateral(pointA, pointB, pointC, pointD);
     }
@@ -44,8 +44,9 @@ public class TrapezoidCalculatorTest {
     }
     @Test
     public void trapezoidAreaCalculatorTestPass(){
+
         double actual = trapezoidCalculator.areaCalculator(quadrilateral);
-        double expected = 0;
+        double expected = 724.50;
 
         Assert.assertEquals(expected, actual, DELTA);
 
@@ -54,7 +55,7 @@ public class TrapezoidCalculatorTest {
     @Test
     public void trapezoidAreaCalculatorTestFail(){
         double actual =  trapezoidCalculator.areaCalculator(quadrilateral);
-        double expected = 0;
+        double expected = 700;
 
         Assert.assertEquals(expected, actual, DELTA);
 
@@ -63,7 +64,7 @@ public class TrapezoidCalculatorTest {
     @Test
     public void trapezoidPerimeterCalculatorTestPass(){
         double actual = trapezoidCalculator.perimeterCalculator(quadrilateral);
-        double expected = 36.51;
+        double expected = 119.15;
 
         Assert.assertEquals(expected, actual, DELTA);
 
