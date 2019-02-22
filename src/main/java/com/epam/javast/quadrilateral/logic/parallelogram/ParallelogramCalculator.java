@@ -14,6 +14,9 @@ public class ParallelogramCalculator implements Calculator {
 
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
+        if(quadrilateral == null){
+            throw new IllegalArgumentException("Parallelogram Quadrilateral not allow to be null");
+        }
         Point pointA = quadrilateral.getPointA();
         Point pointB = quadrilateral.getPointB();
         Point pointC = quadrilateral.getPointC();
@@ -34,6 +37,9 @@ public class ParallelogramCalculator implements Calculator {
 
     @Override
     public double perimeterCalculator(Quadrilateral quadrilateral) {
+        if(quadrilateral == null){
+            throw new IllegalArgumentException("Parallelogram Quadrilateral not allow to be null");
+        }
         Point pointA = quadrilateral.getPointA();
         Point pointB = quadrilateral.getPointB();
         Point pointC = quadrilateral.getPointC();
