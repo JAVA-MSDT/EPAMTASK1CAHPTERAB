@@ -6,6 +6,12 @@ import com.epam.javast.quadrilateral.logic.CalculatorHelper;
 public class RectangleValidator {
     private CalculatorHelper calculatorHelper = new CalculatorHelper();
 
+    /**
+     * By checking the distance between the points, Rectangle has to have each 2 sides in parallel and the same length,
+     * also the diagonals length has to be equal.
+     * @param quadrilateral to check it if it is a Rectangle or not.
+     * @return true if it is valid Rectangle, false iif it is not valid Rectangle
+     */
     public boolean isValidRectangle(Quadrilateral quadrilateral) {
         if (quadrilateral == null) {
             return false;

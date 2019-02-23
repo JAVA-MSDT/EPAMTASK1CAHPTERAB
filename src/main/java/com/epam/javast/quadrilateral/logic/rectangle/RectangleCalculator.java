@@ -13,6 +13,10 @@ public class RectangleCalculator implements Calculator {
         return "Rectangle";
     }
 
+    /**
+     * @param quadrilateral to calculate it is area as a Rectangle
+     * @return area of a Rectangle
+     */
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
         if(quadrilateral == null){
@@ -27,6 +31,11 @@ public class RectangleCalculator implements Calculator {
         return sideAB * sideBC;
     }
 
+    /**
+     *
+     * @param quadrilateral to calculate it is Perimeter as a Rectangle
+     * @return Perimeter of a Rectangle
+     */
     @Override
     public double perimeterCalculator(Quadrilateral quadrilateral) {
         if(quadrilateral == null){

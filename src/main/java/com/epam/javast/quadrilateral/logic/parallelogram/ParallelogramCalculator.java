@@ -12,6 +12,12 @@ public class ParallelogramCalculator implements Calculator {
         return "Parallelogram";
     }
 
+    /**
+     * calculating the are of a Parallelogram by dividing the Parallelogram into 2 triangle, calculating the are of each
+     * triangle separately then adding them together to get the area of the Parallelogram.
+     * @param quadrilateral to calculate it is area as a Parallelogram
+     * @return area of a Parallelogram
+     */
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
         if(quadrilateral == null){
@@ -35,6 +41,11 @@ public class ParallelogramCalculator implements Calculator {
         return firstTriangleArea + secondTriangleArea;
     }
 
+    /**
+     *
+     * @param quadrilateral to calculate it is perimeter as a Parallelogram
+     * @return perimeter of a Parallelogram
+     */
     @Override
     public double perimeterCalculator(Quadrilateral quadrilateral) {
         if(quadrilateral == null){

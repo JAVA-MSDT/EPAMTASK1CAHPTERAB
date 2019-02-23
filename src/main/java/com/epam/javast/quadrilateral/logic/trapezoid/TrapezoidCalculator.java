@@ -12,6 +12,12 @@ public class TrapezoidCalculator implements Calculator {
         return "Trapezoid";
     }
 
+    /**
+     * calculating the are of a Trapezoid by dividing the Trapezoid into 2 triangle, calculating the are of each
+     * triangle separately then adding them together to get the area of the Trapezoid.
+     * @param quadrilateral to calculate it is area as a Trapezoid
+     * @return area of a Trapezoid
+     */
     @Override
     public double areaCalculator(Quadrilateral quadrilateral) {
         Point pointA = quadrilateral.getPointA();
@@ -32,7 +38,10 @@ public class TrapezoidCalculator implements Calculator {
         return firstTriangleArea + secondTriangleArea;
     }
 
-
+    /**
+     * @param quadrilateral to calculate it is perimeter as a Trapezoid
+     * @return perimeter of a Trapezoid
+     */
     @Override
     public double perimeterCalculator(Quadrilateral quadrilateral) {
         Point pointA = quadrilateral.getPointA();

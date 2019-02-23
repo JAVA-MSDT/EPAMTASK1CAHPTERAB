@@ -49,7 +49,15 @@ public class CalculatorHelper {
         return (y2 - y1) / (x2 - x1);
     }
 
-
+    /**
+     * Using the formula to get the triangle perimeter then divide it by 2
+     * subtracting each side from the half perimeter and store it in a variable,
+     * using square root for the multiplication of half perimeter and the result of subtracting each side from the half perimeter.
+     * @param sideA length of side A
+     * @param sideB length of side B
+     * @param sideC length of side B
+     * @return area of a triangle depending on the side length.
+     */
     public double triangleArea(double sideA, double sideB, double sideC){
 
         double halfPerimeter = (sideA + sideB + sideC) / 2;

@@ -18,7 +18,11 @@ public class WriteToFile implements DataWriter {
         this.filePath = filePath;
     }
 
-
+    /**
+     *
+     * @param quadrilateralList to store it in a file
+     * @throws DataSaveException if something went wrong in sending data to file
+     */
     @Override
     public void save(List<Quadrilateral> quadrilateralList) throws DataSaveException {
         if(quadrilateralList == null){
@@ -31,7 +35,11 @@ public class WriteToFile implements DataWriter {
         }
     }
 
-
+    /**
+     * Helper method to convert quadrilateralList to a styling string in order to save it in a file
+     * @param quadrilateralList to be converted to a string
+     * @return string contains styling of how the list of Quadrilateral will looks like in a file
+     */
     private String quadrilateralToString(List<Quadrilateral> quadrilateralList) {
         if(quadrilateralList == null){
             throw new IllegalArgumentException("quadrilateralList not allow to be null");
